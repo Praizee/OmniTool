@@ -6,6 +6,8 @@ A sleek, robust, and cleanly architected utility application built for the **HNG
 
 [Test the app live on Appetize.io here!](https://appetize.io/app/b_or6mnwfwo5eer2jtxbpe3jtfuq)
 
+<!-- don't forget to update this to the more recent version, after you upload 👆!! -->
+
 ---
 
 ## Core Modules
@@ -43,4 +45,12 @@ pnpm install
 # 3. Start the Expo server
 pnpm start
 ```
+
+## Stage 1 Update: Task Manager
+
+Extended the toolkit with a fully functional, offline-persistent Task Manager.
+
+- **CRUD Functionality:** Create, Read (Mark Complete), Update, and Delete tasks.
+- **Offline Persistence:** Utilizing `@react-native-async-storage/async-storage` to ensure tasks remain saved across app restarts.
+- **Architecture:** Abstracted data handling into a custom `useTasks` hook to maintain strict separation of concerns from the UI components.
 
