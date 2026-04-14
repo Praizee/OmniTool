@@ -22,11 +22,12 @@ A sleek, robust, and cleanly architected utility application built for the **HNG
 
 This project was intentionally built avoiding "spaghetti code." The UI components are strictly decoupled from the business logic.
 
-- **Framework:** React Native / Expo Router (File-based routing)
+- **Framework:** React Native / Expo Router (Upgraded to SDK 55.0.15 for strict dependency alignment)
 - **Language:** TypeScript (Strictly typed for production reliability)
 - **UI/Theming:** React Native Paper (Material Design) & `twrnc` (Tailwind CSS)
 - **State Management:** React `useState` & `useRef`
 - **Logic/Math:** Pure, testable functions isolated in the `/utils` directory.
+- **Code Quality:** Passed 100% of `expo doctor` health checks for a warning-free native build.
 
 ---
 
