@@ -1,6 +1,6 @@
 import { Task, useTasks } from "@/hooks/useTasks";
 import React, { useState } from "react";
-import { FlatList, Keyboard, View } from "react-native";
+import { Alert, FlatList, Keyboard, View } from "react-native";
 import {
   Button,
   Card,
@@ -42,6 +42,17 @@ export default function TasksScreen() {
     }
     setEditModalVisible(false);
     setTaskToEdit(null);
+  };
+
+  const confirmDelete = (id: string) => {
+    Alert.alert(
+      "Delete Task",
+      "Are you sure you want to delete this task? This cannot be undone.",
+      [
+        { text: "Cancel", style: "cancel" },
+        { text: "Delete", style: "destructive", onPress: () => deleteTask(id) },
+      ],
+    );
   };
 
   return (
@@ -96,7 +107,7 @@ export default function TasksScreen() {
                   icon="delete"
                   size={20}
                   iconColor="#ef4444"
-                  onPress={() => deleteTask(item.id)}
+                  onPress={() => confirmDelete(item.id)}
                 />
               </View>
             </View>
