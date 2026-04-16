@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect, useState } from "react";
 
 export interface Task {
   id: string;
@@ -13,7 +13,6 @@ export function useTasks() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Load tasks on mount
   useEffect(() => {
     loadTasks();
   }, []);
@@ -70,3 +69,4 @@ export function useTasks() {
 
   return { tasks, loading, addTask, toggleTask, editTask, deleteTask };
 }
+
