@@ -15,12 +15,12 @@ export default function TimeScreen() {
 
   const [swTime, setSwTime] = useState(0);
   const [swRunning, setSwRunning] = useState(false);
-  const swInterval = useRef<NodeJS.Timeout | null>(null);
+  const swInterval = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const [timerInput, setTimerInput] = useState("5");
   const [tTime, setTTime] = useState(300);
   const [tRunning, setTRunning] = useState(false);
-  const tInterval = useRef<NodeJS.Timeout | null>(null);
+  const tInterval = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     if (swRunning) {
@@ -29,9 +29,10 @@ export default function TimeScreen() {
         10,
       );
     } else {
-      clearInterval(swInterval.current as NodeJS.Timeout);
+      clearInterval(swInterval.current as ReturnType<typeof setInterval>);
     }
-    return () => clearInterval(swInterval.current as NodeJS.Timeout);
+    return () =>
+      clearInterval(swInterval.current as ReturnType<typeof setInterval>);
   }, [swRunning]);
 
   useEffect(() => {
@@ -39,11 +40,12 @@ export default function TimeScreen() {
       tInterval.current = setInterval(() => setTTime((prev) => prev - 1), 1000);
     } else if (tTime === 0) {
       setTRunning(false);
-      clearInterval(tInterval.current as NodeJS.Timeout);
+      clearInterval(tInterval.current as ReturnType<typeof setInterval>);
     } else {
-      clearInterval(tInterval.current as NodeJS.Timeout);
+      clearInterval(tInterval.current as ReturnType<typeof setInterval>);
     }
-    return () => clearInterval(tInterval.current as NodeJS.Timeout);
+    return () =>
+      clearInterval(tInterval.current as ReturnType<typeof setInterval>);
   }, [tRunning, tTime]);
 
   const startTimer = () => {
